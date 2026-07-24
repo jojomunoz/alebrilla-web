@@ -775,8 +775,8 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
       else if(type==='heart')col=Math.random()<.6?CO.rose:CO.pink;
       else col=Math.random()<.5?CO.pink:CO.rose;
       return {x:Math.random()*W,y:Math.random()*H,type:type,c:col,r:7+Math.random()*8,
-        s:.12+Math.random()*.42,ph:Math.random()*6.28,sw:.5+Math.random(),rot:Math.random()*6.28,rs:(Math.random()-.5)*.02,tw:Math.random()*6.28,tws:.02+Math.random()*.03,a:.4+Math.random()*.32};}
-    function seed(){parts=[];var n=Math.min(22,Math.round(W/44));for(var i=0;i<n;i++)parts.push(make());}
+        s:.12+Math.random()*.42,ph:Math.random()*6.28,sw:.5+Math.random(),rot:Math.random()*6.28,rs:(Math.random()-.5)*.02,tw:Math.random()*6.28,tws:.02+Math.random()*.03,a:.46+Math.random()*.34};}
+    function seed(){parts=[];var n=Math.min(48,Math.max(12,Math.round(W*H/30000)));for(var i=0;i<n;i++)parts.push(make());}
     var running=false,visible=true;
     function frame(){if(!running)return;ctx.clearRect(0,0,W,H);
       for(var i=0;i<parts.length;i++){var p=parts[i];
