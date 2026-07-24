@@ -263,9 +263,8 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .qa .a{padding:0 20px 18px;color:var(--soft);font-size:15.5px}
 .qa .a b{color:var(--ink)}
 
-/* ==================== FOOTER ==================== */
-.foot{background:var(--ink);color:#fff;padding:clamp(46px,7vw,72px) 0 30px}
-:root[data-theme=light] .foot{background:#2A0F1C}
+/* ==================== FOOTER (siempre oscuro, en ambos temas) ==================== */
+.foot{background:#2A0F1C;color:#fff;padding:clamp(46px,7vw,72px) 0 30px}
 .foot .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
 @media(max-width:760px){.foot .wrap{grid-template-columns:1fr;gap:22px;text-align:center}}
 .foot .brand{display:flex;align-items:center;gap:10px;font-family:var(--f-disp);font-weight:800;font-size:24px;margin-bottom:8px}
