@@ -789,7 +789,11 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
       ctx.globalAlpha=1;requestAnimationFrame(frame);}
     function run(on){if(on&&!running&&visible&&!document.hidden){running=true;requestAnimationFrame(frame);}else if(!on){running=false;}}
     size();seed();run(true);
-    var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){size();seed();},180);});
+    /* re-medir cuando el layout/fuente ya asentaron (arregla que en desktop no apareciera hasta un resize) */
+    var rt;function resize(){clearTimeout(rt);rt=setTimeout(function(){size();seed();run(true);},120);}
+    if('ResizeObserver'in window){new ResizeObserver(resize).observe(cv);}
+    window.addEventListener('resize',resize);
+    window.addEventListener('load',resize);
     document.addEventListener('visibilitychange',function(){run(!document.hidden&&visible);});
     if('IntersectionObserver'in window){var hero=document.querySelector('.hero');if(hero)new IntersectionObserver(function(e){visible=e[0].isIntersecting;run(visible);},{threshold:0}).observe(hero);}
   }
