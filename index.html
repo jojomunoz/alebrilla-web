@@ -7,12 +7,20 @@
 <meta name="description" content="Pide tu cucharada Alebrilla: maquillaje sorpresa que yo destapo en video, con tu nombre, y te envío a toda Colombia. Cantidad fija, hecho a mano en Medellín.">
 <meta name="theme-color" content="#E8477E">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://jojomunoz.github.io/alebrilla-web/">
 <meta property="og:title" content="Alebrilla · Maquillaje sorpresa 💗">
 <meta property="og:description" content="Tu cucharada de maquillaje, destapada en video con tu nombre. Cantidad fija, hecho a mano en Medellín. Envíos a toda Colombia.">
-<!-- og:image → reemplazar por una foto/portada real cuando exista -->
-<meta property="og:image" content="og-cover.jpg">
+<meta property="og:image" content="https://jojomunoz.github.io/alebrilla-web/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alebrilla · Maquillaje sorpresa 💗">
+<meta name="twitter:description" content="Tu cucharada de maquillaje, destapada en video con tu nombre. Envíos a toda Colombia.">
+<meta name="twitter:image" content="https://jojomunoz.github.io/alebrilla-web/og-cover.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E">
 <style>
+/* fuente display propia (self-hosted, sin CDN) — Fredoka variable, redonda y premium */
+@font-face{font-family:'Fredoka';src:url('fredoka-latin.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
 /* ==================== TOKENS · kawaii premium ==================== */
 :root{
   --bg:#FFF6F9; --bg2:#FDE8F0; --paper:#FFFFFF;
@@ -25,7 +33,9 @@
   --sh:0 18px 40px -26px rgba(196,44,100,.55);
   --sh-lg:0 34px 70px -34px rgba(196,44,100,.55);
   --glass:rgba(255,255,255,.66);
-  --f-disp:"Trebuchet MS","Gill Sans Nova","Segoe UI",system-ui,sans-serif;
+  --btn:#E8477E; --btnH:#C42C64; /* botones solidos: rosa profundo + texto blanco, FIJO en ambos temas (legible) */
+  --gink:#8A6516; /* dorado legible como TEXTO sobre fondos claros (AA); el --gold decorativo sigue igual */
+  --f-disp:'Fredoka',"Trebuchet MS","Gill Sans Nova","Segoe UI",system-ui,sans-serif;
   --f-body:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",sans-serif;
   --f-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
   --maxw:1000px;
@@ -36,14 +46,14 @@
     --ink:#FCE8EF; --soft:#D6A7B6; --faint:#9E7286;
     --rose:#FF7BA6; --roseD:#FF9DBE; --roseW:#33131F;
     --gold:#E9C069; --goldD:#F2D591; --goldW:#2C2216;
-    --mint:#79DBC0;
+    --mint:#79DBC0;--gink:#E9C069;
     --line:rgba(252,232,239,.12); --line2:rgba(252,232,239,.2);
     --sh-sm:0 4px 14px -8px rgba(0,0,0,.6); --sh:0 18px 40px -26px rgba(0,0,0,.7); --sh-lg:0 34px 70px -34px rgba(0,0,0,.75);
     --glass:rgba(38,16,28,.62);
   }
 }
 :root[data-theme=light]{--bg:#FFF6F9;--bg2:#FDE8F0;--paper:#FFFFFF;--ink:#3A1526;--soft:#7A5464;--faint:#855F70;--rose:#E8477E;--roseD:#C42C64;--roseW:#FDEBF2;--gold:#C79A3B;--goldD:#A9791F;--goldW:#F7EFDA;--mint:#3E9E86;--line:rgba(58,21,38,.10);--line2:rgba(58,21,38,.17);--sh-sm:0 4px 14px -8px rgba(196,44,100,.45);--sh:0 18px 40px -26px rgba(196,44,100,.55);--sh-lg:0 34px 70px -34px rgba(196,44,100,.55);--glass:rgba(255,255,255,.66);}
-:root[data-theme=dark]{--bg:#190A12;--bg2:#25101C;--paper:#221019;--ink:#FCE8EF;--soft:#D6A7B6;--faint:#9E7286;--rose:#FF7BA6;--roseD:#FF9DBE;--roseW:#33131F;--gold:#E9C069;--goldD:#F2D591;--goldW:#2C2216;--mint:#79DBC0;--line:rgba(252,232,239,.12);--line2:rgba(252,232,239,.2);--sh-sm:0 4px 14px -8px rgba(0,0,0,.6);--sh:0 18px 40px -26px rgba(0,0,0,.7);--sh-lg:0 34px 70px -34px rgba(0,0,0,.75);--glass:rgba(38,16,28,.62);}
+:root[data-theme=dark]{--bg:#190A12;--bg2:#25101C;--paper:#221019;--ink:#FCE8EF;--soft:#D6A7B6;--faint:#9E7286;--rose:#FF7BA6;--roseD:#FF9DBE;--roseW:#33131F;--gold:#E9C069;--goldD:#F2D591;--goldW:#2C2216;--mint:#79DBC0;--gink:#E9C069;--line:rgba(252,232,239,.12);--line2:rgba(252,232,239,.2);--sh-sm:0 4px 14px -8px rgba(0,0,0,.6);--sh:0 18px 40px -26px rgba(0,0,0,.7);--sh-lg:0 34px 70px -34px rgba(0,0,0,.75);--glass:rgba(38,16,28,.62);}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -51,7 +61,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);fo
 img{max-width:100%;display:block}
 p{margin:0 0 1em}
 strong{color:var(--roseD);font-weight:700}
-em{font-style:normal;color:var(--gold);font-weight:600}
+em{font-style:normal;color:var(--gink);font-weight:600}
 a{color:inherit}
 h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;text-wrap:balance;margin:0}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,34px)}
@@ -64,15 +74,15 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .nav .links{display:flex;gap:4px;align-items:center}
 .nav .links a{text-decoration:none;color:var(--ink);font-weight:700;font-size:14.5px;padding:8px 11px;border-radius:999px}
 .nav .links a:hover{background:color-mix(in srgb,var(--rose) 12%,transparent);color:var(--roseD)}
-.nav .links a.cta{background:var(--rose);color:#fff}
-.nav .links a.cta:hover{background:var(--roseD)}
+.nav .links a.cta{background:var(--btn);color:#fff}
+.nav .links a.cta:hover{background:var(--btnH)}
 .nav .tg{background:transparent;border:none;cursor:pointer;font-size:19px;min-width:44px;min-height:44px;display:grid;place-items:center;padding:0;border-radius:999px;line-height:1}
 .nav .links a{min-height:40px;display:inline-flex;align-items:center}
 @media(max-width:720px){.nav .links a:not(.cta){display:none}}
 
 /* ==================== BUTTONS ==================== */
-.btn{font-family:var(--f-disp);font-weight:800;border:none;border-radius:999px;padding:15px 28px;font-size:17px;cursor:pointer;color:#fff;background:var(--rose);box-shadow:0 14px 26px -14px var(--roseD);transition:transform .13s ease,background .2s;text-decoration:none;display:inline-flex;align-items:center;gap:9px;justify-content:center}
-.btn:hover{background:var(--roseD);transform:translateY(-2px)}
+.btn{font-family:var(--f-disp);font-weight:800;border:none;border-radius:999px;padding:15px 28px;font-size:17px;cursor:pointer;color:#fff;background:var(--btn);box-shadow:0 14px 26px -14px var(--btnH);transition:transform .13s ease,background .2s;text-decoration:none;display:inline-flex;align-items:center;gap:9px;justify-content:center}
+.btn:hover{background:var(--btnH);transform:translateY(-2px)}
 .btn:active{transform:translateY(0)}
 .btn.ghost{background:transparent;color:var(--roseD);border:2px solid var(--rose);box-shadow:none}
 .btn.ghost:hover{background:color-mix(in srgb,var(--rose) 10%,transparent)}
@@ -92,8 +102,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 #charms{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;width:100%}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;text-align:center}}
-.hero .eyebrow{display:inline-block;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--goldD);font-weight:600;margin-bottom:10px}
-:root[data-theme=dark] .hero .eyebrow{color:var(--gold)}
+.hero .eyebrow{display:inline-block;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gink);font-weight:600;margin-bottom:10px}
 .hero h1{font-size:clamp(40px,8.5vw,74px);font-weight:800;letter-spacing:-.03em;line-height:.98;margin:0 0 14px}
 .hero h1 .r{color:var(--roseD)}
 .hero .sub{font-size:clamp(18px,3.2vw,22px);color:var(--soft);max-width:30ch;margin:0 0 26px}
@@ -106,7 +115,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 /* hero visual: coca */
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:340px}
 .coca-card{position:relative;width:min(400px,88vw);aspect-ratio:1/.92;background:var(--paper);border:1px solid var(--line);border-radius:34px;box-shadow:var(--sh-lg);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.coca-card .tape{position:absolute;top:16px;left:50%;transform:translateX(-50%) rotate(-2deg);font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);background:var(--goldW);border:1px dashed var(--gold);border-radius:8px;padding:4px 10px;z-index:3}
+.coca-card .tape{position:absolute;top:16px;left:50%;transform:translateX(-50%) rotate(-2deg);font-family:var(--f-mono);font-size:10.5px;white-space:nowrap;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);background:var(--goldW);border:1px dashed var(--gold);border-radius:8px;padding:4px 10px;z-index:3}
 .cuca-hero{width:150px;height:160px;animation:bob 4.6s ease-in-out infinite;position:relative;z-index:2}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-13px) rotate(2deg)}}
 .coca-charm{position:absolute;font-size:26px;opacity:.9;animation:float 6s ease-in-out infinite}
@@ -118,8 +127,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .sec.rose{background:linear-gradient(170deg,var(--roseW),transparent)}
 .head{max-width:62ch;margin:0 0 34px}
 .head.ctr{margin-left:auto;margin-right:auto;text-align:center}
-.kick{font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--goldD);font-weight:600}
-:root[data-theme=dark] .kick{color:var(--gold)}
+.kick{font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gink);font-weight:600}
 .sec h2{font-size:clamp(28px,5.6vw,46px);font-weight:800;margin:8px 0 12px}
 .sec .lead{font-size:clamp(17px,2.6vw,20px);color:var(--soft);margin:0}
 
@@ -167,15 +175,15 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .talla{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:26px 22px 24px;box-shadow:var(--sh);position:relative;display:flex;flex-direction:column;text-align:center;cursor:pointer;transition:transform .16s ease,box-shadow .2s,border-color .2s}
 .talla:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
 .talla.pop{border:2px solid var(--rose)}
-.talla.pop::before{content:"⭐ La más pedida";position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--rose);color:#fff;font-size:12px;font-weight:800;padding:5px 14px;border-radius:999px;white-space:nowrap;box-shadow:var(--sh-sm)}
+.talla.pop::before{content:"⭐ La más pedida";position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--btn);color:#fff;font-size:12px;font-weight:800;padding:5px 14px;border-radius:999px;white-space:nowrap;box-shadow:var(--sh-sm)}
 .talla .tn{font-family:var(--f-disp);font-weight:800;font-size:22px;color:var(--ink)}
-.talla .tq{font-family:var(--f-mono);font-size:13px;color:var(--gold);font-weight:600;letter-spacing:.06em;margin:2px 0 10px}
+.talla .tq{font-family:var(--f-mono);font-size:13px;color:var(--gink);font-weight:600;letter-spacing:.06em;margin:2px 0 10px}
 .talla .tp{font-family:var(--f-disp);font-weight:800;font-size:34px;color:var(--roseD);line-height:1}
 .talla .tv{font-size:13px;color:var(--faint);margin:4px 0 12px}
 .talla .tx{font-size:14.5px;color:var(--soft);margin:0 0 16px;flex:1}
 .talla .pick{margin-top:auto;font-family:var(--f-disp);font-weight:800;border:2px solid var(--rose);color:var(--roseD);background:transparent;border-radius:999px;padding:11px 0;font-size:15px;cursor:pointer;transition:background .2s,color .2s}
-.talla.pop .pick{background:var(--rose);color:#fff;border-color:var(--rose)}
-.talla:hover .pick{background:var(--rose);color:#fff;border-color:var(--rose)}
+.talla.pop .pick{background:var(--btn);color:#fff;border-color:var(--btn)}
+.talla:hover .pick{background:var(--btn);color:#fff;border-color:var(--btn)}
 .tallas-note{text-align:center;margin:22px auto 0;max-width:52ch;color:var(--soft);font-size:15px}
 
 /* ==================== TABLERO ==================== */
@@ -281,10 +289,16 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .foot .social svg{width:20px;height:20px;fill:#fff}
 .legal{text-align:center;color:rgba(255,255,255,.45);font-size:12.5px;margin-top:34px;font-family:var(--f-mono)}
 
+/* resumen compacto de precio arriba del boton (movil ve el total ANTES de tocar) */
+.formsum{margin-top:16px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:12px 15px;text-align:center;font-size:14.5px;color:var(--soft)}
+.formsum b{font-family:var(--f-disp);font-size:20px;color:var(--roseD);display:block;margin-bottom:2px}
+.chk{min-height:44px}
+
 /* ==================== MOBILE STICKY CTA ==================== */
-.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);display:none}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);display:none;transform:translateY(100%);transition:transform .3s cubic-bezier(.16,1,.3,1)}
 .sticky-cta .btn{width:100%}
-@media(max-width:720px){.sticky-cta{display:block}body{padding-bottom:78px}}
+@media(max-width:720px){.sticky-cta{display:block}.sticky-cta.show{transform:none}body{padding-bottom:78px}}
+@media(max-width:430px){.btn.big{font-size:16.5px;padding:15px 18px;gap:7px}}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -400,7 +414,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
           </svg>
         </div>
         <button class="btn big" id="scoopBtn">🥄 Meter la cuchara</button>
-        <div class="stat" id="stat"></div>
+        <div class="stat" id="stat" aria-live="polite"></div>
         <div class="sorpresas" id="sorpresas"></div>
         <div class="result" id="result">
           <div class="result-inner">
@@ -452,7 +466,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
       <div class="head ctr reveal">
         <span class="kick">Sin sorpresas feas</span>
         <h2>Qué puede salir</h2>
-        <p class="lead">Cada figurita de la coca es un producto real. Aquí ves todo lo que puede tocarte — para que pidas con confianza.</p>
+        <p class="lead">Cada figurita de la coca es un producto real. Aquí ves todo lo que puede llegarte, para que pidas con confianza.</p>
       </div>
       <div class="board" id="board" aria-label="Productos que pueden salir"></div>
       <div class="golden reveal d1">
@@ -468,7 +482,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
       <div class="head ctr reveal">
         <span class="kick">Lo que dicen</span>
         <h2>Destapes y reseñas reales</h2>
-        <p class="lead">Aquí van los videos de destapes y los mensajes de tus clientas felices. Se llenan solitos con cada pedido. 💗</p>
+        <p class="lead">Muy pronto verás aquí los primeros destapes y mensajes reales. ¿Te animas a pedir la primera cucharada? 💗</p>
       </div>
       <div class="reviews">
         <div class="ph reveal d1"><span class="ic">🎥</span><span class="t">Muy pronto: destapes reales</span><span class="d">Aquí verás a otras clientas abriendo su cucharada. 💗</span></div>
@@ -499,7 +513,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
           <span class="kick">Tu compañera</span>
           <h2>Conoce a Cuca 🥄</h2>
           <p>Cuca es la cucharita con carita que va en cada pedido de Alebrilla. Es tierna, es paisa y es la cara de tu marca favorita de sorpresas.</p>
-          <p>La idea es que <strong>colecciones las Cucas</strong> — como los Labubu, pero de aquí. Cada tanda trae una Cuca distinta para coleccionar. 💗</p>
+          <p>La idea es que <strong>colecciones las Cucas</strong> — como esos coleccionables famosos, pero de aquí. Cada tanda trae una Cuca distinta para coleccionar. 💗</p>
         </div>
       </div>
     </div>
@@ -514,7 +528,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
         <p class="lead">Sé que darle plata a alguien nuevo por internet da nervios. Por eso te lo pongo fácil.</p>
       </div>
       <div class="trust-grid">
-        <div class="ph ale-ph reveal"><span class="ic">👩🏻</span><span class="t">Hola, soy Ale 💗</span><span class="d">Muy pronto va aquí mi foto. Mientras tanto, mírame en <a href="https://instagram.com/alebrilla" target="_blank" rel="noopener" style="color:var(--roseD);font-weight:700">Instagram @alebrilla</a> para ver quién está detrás.</span></div>
+        <div class="ph ale-ph reveal"><span class="ic">👩🏻</span><span class="t">Hola, soy Ale 💗</span><span class="d">Muy pronto va aquí mi foto. Mientras tanto, <a href="https://wa.me/573025670116" target="_blank" rel="noopener" style="color:var(--roseD);font-weight:700">escríbeme por WhatsApp</a> y con gusto te muestro quién está detrás. 💗</span></div>
         <ul class="trust-list">
           <li class="reveal d1"><span class="mk">✓</span><div><b>Pagas contra entrega (en ciudades disponibles).</b> <span>Donde llega la transportadora con recaudo, recibes primero y pagas después. Si no, es por Nequi al apartar.</span></div></li>
           <li class="reveal d1"><span class="mk">✓</span><div><b>La cantidad está garantizada.</b> <span>Nunca vendo "entre tantos y tantos". Es 6, 9 o 12, y los cuento en tu video.</span></div></li>
@@ -558,6 +572,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
             <label class="fl" for="dedi">Tu dedicatoria</label>
             <textarea id="dedi" placeholder="Ej: Para mi mejor amiga, ¡te quiero! 💗"></textarea>
           </div>
+          <div class="formsum"><b id="fTotal">$56.900</b>envío aparte · pagas por Nequi o contra entrega</div>
           <a class="btn wa big" id="waBtn" href="#" target="_blank" rel="noopener">💬 Apartar por WhatsApp</a>
         </div>
         <div class="summary reveal d2">
@@ -627,20 +642,26 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 </footer>
 
 <!-- ==================== MOBILE STICKY CTA ==================== -->
-<div class="sticky-cta"><a class="btn wa" href="#pedir">💌 Pide tu cucharada</a></div>
+<div class="sticky-cta" id="stickyCta"><a class="btn" href="#pedir">💌 Pide tu cucharada</a></div>
 
 <script>
 (function(){
   var root=document.documentElement;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-  /* ---------- theme ---------- */
+  /* ---------- theme (recuerda la elección) ---------- */
   var tg=document.getElementById('tg');
   function sysDark(){return window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;}
+  try{var saved=localStorage.getItem('alebrilla-theme');if(saved)root.setAttribute('data-theme',saved);}catch(e){}
   function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':sysDark();}
   function paint(){tg.textContent=isDark()?'☀️':'🌙';}
   paint();
-  tg.addEventListener('click',function(){root.setAttribute('data-theme',isDark()?'light':'dark');paint();});
+  tg.addEventListener('click',function(){var next=isDark()?'light':'dark';root.setAttribute('data-theme',next);try{localStorage.setItem('alebrilla-theme',next);}catch(e){}paint();});
+
+  /* ---------- barra fija: aparece al pasar el hero ---------- */
+  var sticky=document.getElementById('stickyCta'),heroEl=document.querySelector('.hero');
+  if(sticky&&heroEl&&'IntersectionObserver'in window){new IntersectionObserver(function(e){sticky.classList.toggle('show',!e[0].isIntersecting);},{threshold:0}).observe(heroEl);}
+  else if(sticky){sticky.classList.add('show');}
 
   /* ---------- reveal ---------- */
   var els=[].slice.call(document.querySelectorAll('.reveal'));
@@ -719,7 +740,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
     setTimeout(function(){
       stat.textContent='¡Salieron 6 sorpresas! 🎉';burst();
       items.forEach(function(it,idx){var d=document.createElement('div');d.className='sorpresa'+(it.star?' star':'');d.innerHTML='<div class="pe">'+it.e+'</div><div class="pn">'+it.n+'</div>';sorpresas.appendChild(d);setTimeout(function(){d.classList.add('show');},reduce?0:150*idx+40);});
-      setTimeout(function(){result.classList.add('show');},reduce?0:150*items.length+250);
+      setTimeout(function(){result.classList.add('show');try{result.scrollIntoView({block:'nearest',behavior:reduce?'auto':'smooth'});}catch(e){}},reduce?0:150*items.length+250);
     },reduce?0:1200);
   }
   if(scoopBtn)scoopBtn.addEventListener('click',scoop);
@@ -730,7 +751,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
   var sel='9';
   var cop=function(n){return '$'+n.toLocaleString('es-CO');};
   var seg=document.getElementById('segTalla'),cantSel=document.getElementById('cant'),esRegalo=document.getElementById('esRegalo'),giftbox=document.getElementById('giftbox'),dedi=document.getElementById('dedi'),nom=document.getElementById('nom'),ciu=document.getElementById('ciu'),waBtn=document.getElementById('waBtn');
-  var sTalla=document.getElementById('sTalla'),sCant=document.getElementById('sCant'),sGift=document.getElementById('sGift'),sTotal=document.getElementById('sTotal');
+  var sTalla=document.getElementById('sTalla'),sCant=document.getElementById('sCant'),sGift=document.getElementById('sGift'),sTotal=document.getElementById('sTotal'),fTotal=document.getElementById('fTotal');
   var tallaCards=[].slice.call(document.querySelectorAll('.talla'));
 
   function render(){
@@ -743,8 +764,8 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
     sTalla.textContent=t.nombre+' · '+t.cant+' productos';
     sCant.textContent=(n>3?'4 o más':(n+' cucharada'+(n>1?'s':'')));
     sGift.textContent=esRegalo.checked?'Sí ✨':'No';
-    if(n>=1&&n<=3){sTotal.textContent=cop(t.precio*n);}
-    else{sTotal.textContent='A cuadrar';}
+    if(n>=1&&n<=3){sTotal.textContent=cop(t.precio*n);fTotal.textContent=cop(t.precio*n);}
+    else{sTotal.textContent='A cuadrar';fTotal.textContent='Total: a cuadrar';}
     // link wa
     var L=[];
     L.push('¡Hola Ale! Quiero pedir mi cucharada de Alebrilla 💗');
