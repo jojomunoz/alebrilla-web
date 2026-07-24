@@ -16,10 +16,10 @@
 /* ==================== TOKENS · kawaii premium ==================== */
 :root{
   --bg:#FFF6F9; --bg2:#FDE8F0; --paper:#FFFFFF;
-  --ink:#3A1526; --soft:#7A5464; --faint:#A98693;
+  --ink:#3A1526; --soft:#7A5464; --faint:#855F70;
   --rose:#E8477E; --roseD:#C42C64; --roseW:#FDEBF2;
   --gold:#C79A3B; --goldD:#A9791F; --goldW:#F7EFDA;
-  --mint:#3E9E86; --wa:#25D366; --waD:#128C7E;
+  --mint:#3E9E86; --wa:#16A34A; --waD:#128C7E;
   --line:rgba(58,21,38,.10); --line2:rgba(58,21,38,.17);
   --sh-sm:0 4px 14px -8px rgba(196,44,100,.45);
   --sh:0 18px 40px -26px rgba(196,44,100,.55);
@@ -42,7 +42,7 @@
     --glass:rgba(38,16,28,.62);
   }
 }
-:root[data-theme=light]{--bg:#FFF6F9;--bg2:#FDE8F0;--paper:#FFFFFF;--ink:#3A1526;--soft:#7A5464;--faint:#A98693;--rose:#E8477E;--roseD:#C42C64;--roseW:#FDEBF2;--gold:#C79A3B;--goldD:#A9791F;--goldW:#F7EFDA;--mint:#3E9E86;--line:rgba(58,21,38,.10);--line2:rgba(58,21,38,.17);--sh-sm:0 4px 14px -8px rgba(196,44,100,.45);--sh:0 18px 40px -26px rgba(196,44,100,.55);--sh-lg:0 34px 70px -34px rgba(196,44,100,.55);--glass:rgba(255,255,255,.66);}
+:root[data-theme=light]{--bg:#FFF6F9;--bg2:#FDE8F0;--paper:#FFFFFF;--ink:#3A1526;--soft:#7A5464;--faint:#855F70;--rose:#E8477E;--roseD:#C42C64;--roseW:#FDEBF2;--gold:#C79A3B;--goldD:#A9791F;--goldW:#F7EFDA;--mint:#3E9E86;--line:rgba(58,21,38,.10);--line2:rgba(58,21,38,.17);--sh-sm:0 4px 14px -8px rgba(196,44,100,.45);--sh:0 18px 40px -26px rgba(196,44,100,.55);--sh-lg:0 34px 70px -34px rgba(196,44,100,.55);--glass:rgba(255,255,255,.66);}
 :root[data-theme=dark]{--bg:#190A12;--bg2:#25101C;--paper:#221019;--ink:#FCE8EF;--soft:#D6A7B6;--faint:#9E7286;--rose:#FF7BA6;--roseD:#FF9DBE;--roseW:#33131F;--gold:#E9C069;--goldD:#F2D591;--goldW:#2C2216;--mint:#79DBC0;--line:rgba(252,232,239,.12);--line2:rgba(252,232,239,.2);--sh-sm:0 4px 14px -8px rgba(0,0,0,.6);--sh:0 18px 40px -26px rgba(0,0,0,.7);--sh-lg:0 34px 70px -34px rgba(0,0,0,.75);--glass:rgba(38,16,28,.62);}
 
 *{box-sizing:border-box}
@@ -66,7 +66,8 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .nav .links a:hover{background:color-mix(in srgb,var(--rose) 12%,transparent);color:var(--roseD)}
 .nav .links a.cta{background:var(--rose);color:#fff}
 .nav .links a.cta:hover{background:var(--roseD)}
-.nav .tg{background:transparent;border:none;cursor:pointer;font-size:19px;padding:6px;border-radius:999px;line-height:1}
+.nav .tg{background:transparent;border:none;cursor:pointer;font-size:19px;min-width:44px;min-height:44px;display:grid;place-items:center;padding:0;border-radius:999px;line-height:1}
+.nav .links a{min-height:40px;display:inline-flex;align-items:center}
 @media(max-width:720px){.nav .links a:not(.cta){display:none}}
 
 /* ==================== BUTTONS ==================== */
@@ -76,7 +77,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .btn.ghost{background:transparent;color:var(--roseD);border:2px solid var(--rose);box-shadow:none}
 .btn.ghost:hover{background:color-mix(in srgb,var(--rose) 10%,transparent)}
 .btn.wa{background:var(--wa);box-shadow:0 14px 26px -14px var(--waD)}
-.btn.wa:hover{background:#1EBE5A}
+.btn.wa:hover{background:#0F8F43}
 .btn.big{padding:18px 34px;font-size:19px}
 .btn:disabled{opacity:.5;cursor:default;transform:none}
 
@@ -144,17 +145,18 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .bowl.stir .spoon{animation:stir .6s ease-in-out 2}
 @keyframes stir{0%,100%{transform:rotate(0)}25%{transform:rotate(-9deg)}75%{transform:rotate(9deg)}}
 .stat{min-height:26px;font-weight:800;color:var(--roseD);margin:14px 0 2px;font-size:17px}
-.prizes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0}
-@media(max-width:420px){.prizes{grid-template-columns:repeat(2,1fr)}}
-.prize{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:14px 8px;opacity:0;transform:scale(.55) translateY(10px)}
-.prize.show{animation:pop .5s cubic-bezier(.16,1,.3,1) forwards}
-.prize .pe{font-size:32px}.prize .pn{font-size:13px;font-weight:700;margin-top:4px;color:var(--ink)}
-.prize.star{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 15%,var(--paper))}
+.sorpresas{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0}
+@media(max-width:420px){.sorpresas{grid-template-columns:repeat(2,1fr)}}
+.sorpresa{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:14px 8px;opacity:0;transform:scale(.55) translateY(10px)}
+.sorpresa.show{animation:pop .5s cubic-bezier(.16,1,.3,1) forwards}
+.sorpresa .pe{font-size:32px}.sorpresa .pn{font-size:13px;font-weight:700;margin-top:4px;color:var(--ink)}
+.sorpresa.star{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 15%,var(--paper))}
 @keyframes pop{to{opacity:1;transform:none}}
 .result{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.16,1,.3,1)}
 .result-inner{overflow:hidden;opacity:0;transition:opacity .4s ease}
+.result:not(.show) .result-inner{visibility:hidden}
 .result.show{grid-template-rows:1fr}
-.result.show .result-inner{opacity:1;padding-top:10px}
+.result.show .result-inner{opacity:1;padding-top:10px;visibility:visible}
 .game .demo-note{font-size:14px;color:var(--soft);margin:14px 0 0}
 .game .demo-note b{color:var(--roseD)}
 #confetti{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
@@ -230,6 +232,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .seg button small{display:block;font-weight:600;font-size:11.5px;color:var(--faint);margin-top:2px}
 .seg button.on{border-color:var(--rose);background:color-mix(in srgb,var(--rose) 12%,var(--paper));color:var(--roseD)}
 .seg button.on small{color:var(--roseD)}
+@media(max-width:400px){.seg{grid-template-columns:1fr}.seg button{text-align:left;display:flex;justify-content:space-between;align-items:center}.seg button small{margin-top:0}}
 .form input,.form select,.form textarea{width:100%;font-family:var(--f-body);font-size:16px;padding:13px 15px;border-radius:14px;border:1.5px solid var(--line2);background:var(--bg);color:var(--ink)}
 .form textarea{resize:vertical;min-height:64px}
 .giftbox{margin-top:8px;display:none}
@@ -287,7 +290,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
-  .prize{opacity:1;transform:none}
+  .sorpresa{opacity:1;transform:none}
   .result.show .result-inner{opacity:1}
 }
 </style>
@@ -334,7 +337,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
       <div class="hero-visual">
         <!-- VISUAL: ilustración de la coca (real). Aquí después puede ir tu VIDEO/FOTO del destape. -->
         <div class="coca-card">
-          <span class="tape">◇ aquí va tu video del destape</span>
+          <span class="tape">🎥 tu destape, en video</span>
           <span class="coca-charm" style="top:22%;left:16%;animation-delay:0s">💄</span>
           <span class="coca-charm" style="top:30%;right:14%;animation-delay:.8s">🌸</span>
           <span class="coca-charm" style="bottom:26%;left:20%;animation-delay:1.6s">✨</span>
@@ -399,7 +402,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
         </div>
         <button class="btn big" id="scoopBtn">🥄 Meter la cuchara</button>
         <div class="stat" id="stat"></div>
-        <div class="prizes" id="prizes"></div>
+        <div class="sorpresas" id="sorpresas"></div>
         <div class="result" id="result">
           <div class="result-inner">
             <p style="font-weight:800;font-size:18px;margin:2px 0 12px;color:var(--ink)">¡Mira lo que te salió! 😍</p>
@@ -407,7 +410,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
             <div style="margin-top:10px"><button class="btn ghost" id="againBtn">🔄 Otra vez</button></div>
           </div>
         </div>
-        <p class="demo-note">Es un <b>jueguito de prueba</b>. La cantidad de tu cucharada siempre es fija; la sorpresa es <b>cuál</b> producto te sale.</p>
+        <p class="demo-note">Es un <b>jueguito de prueba</b>. La cantidad de tu cucharada siempre es fija; la sorpresa es <b>cuál</b> producto te sale. La figurita dorada es un detalle <b>ocasional</b>: no sale siempre.</p>
       </div>
     </div>
   </section>
@@ -423,19 +426,19 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
       <div class="tallas">
         <div class="talla reveal d1" data-id="6">
           <div class="tn">Cucharadita</div><div class="tq">6 productos</div>
-          <div class="tp">$39.900</div><div class="tv">vale como $48.000 en tienda</div>
+          <div class="tp">$39.900</div><div class="tv">productos que suman más de $48.000 sueltos</div>
           <p class="tx">6 maquillajes contados en video, en caja rosada con tarjeta a mano. Perfecta para probar.</p>
           <button class="pick" type="button">Elegir esta</button>
         </div>
         <div class="talla pop reveal d2" data-id="9">
           <div class="tn">Cucharada</div><div class="tq">9 productos</div>
-          <div class="tp">$56.900</div><div class="tv">vale como $72.000 en tienda</div>
+          <div class="tp">$56.900</div><div class="tv">productos que suman más de $72.000 sueltos</div>
           <p class="tx">9 productos y <strong>cambias 1</strong> si algo no te sirve. La favorita para regalar.</p>
           <button class="pick" type="button">Elegir esta</button>
         </div>
         <div class="talla reveal d3" data-id="12">
           <div class="tn">Cucharadota</div><div class="tq">12 productos</div>
-          <div class="tp">$74.900</div><div class="tv">vale como $96.000 en tienda</div>
+          <div class="tp">$74.900</div><div class="tv">productos que suman más de $96.000 sueltos</div>
           <p class="tx">12 productos y <strong>cambias 2</strong> si algo no te sirve. Para consentirte en grande.</p>
           <button class="pick" type="button">Elegir esta</button>
         </div>
@@ -469,9 +472,9 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
         <p class="lead">Aquí van los videos de destapes y los mensajes de tus clientas felices. Se llenan solitos con cada pedido. 💗</p>
       </div>
       <div class="reviews">
-        <div class="ph reveal d1"><span class="tagph">◇ pendiente</span><span class="ic">🎥</span><span class="t">Video de un destape real</span><span class="d">Sube aquí un TikTok o video de una clienta abriendo su cucharada.</span></div>
-        <div class="ph reveal d2"><span class="tagph">◇ pendiente</span><span class="ic">💬</span><span class="t">Captura de una reseña</span><span class="d">Un pantallazo de WhatsApp de una clienta feliz (con su permiso).</span></div>
-        <div class="ph reveal d3"><span class="tagph">◇ pendiente</span><span class="ic">📸</span><span class="t">Foto de una clienta</span><span class="d">Una foto de alguien estrenando lo que le salió.</span></div>
+        <div class="ph reveal d1"><span class="ic">🎥</span><span class="t">Muy pronto: destapes reales</span><span class="d">Aquí verás a otras clientas abriendo su cucharada. 💗</span></div>
+        <div class="ph reveal d2"><span class="ic">💬</span><span class="t">Muy pronto: reseñas de verdad</span><span class="d">Los mensajes de clientas felices, tal cual. 💗</span></div>
+        <div class="ph reveal d3"><span class="ic">📸</span><span class="t">Muy pronto: fotos de clientas</span><span class="d">Estrenando lo que les salió. 💗</span></div>
       </div>
     </div>
   </section>
@@ -496,8 +499,8 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
         <div class="cuca-copy reveal d1">
           <span class="kick">Tu compañera</span>
           <h2>Conoce a Cuca 🥄</h2>
-          <p>Cuca es la cucharita con carita que va en cada pedido de Alebrilla. Es tierna, es paisa y es <strong>solo tuya</strong>: nadie más la tiene.</p>
-          <p>La idea es que <strong>coleccciones las Cucas</strong> — como los Labubu, pero de aquí. Cada tanda puede traer una diferente. 💗</p>
+          <p>Cuca es la cucharita con carita que va en cada pedido de Alebrilla. Es tierna, es paisa y es la cara de tu marca favorita de sorpresas.</p>
+          <p>La idea es que <strong>colecciones las Cucas</strong> — como los Labubu, pero de aquí. Cada tanda trae una Cuca distinta para coleccionar. 💗</p>
         </div>
       </div>
     </div>
@@ -512,8 +515,9 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
         <p class="lead">Sé que darle plata a alguien nuevo por internet da nervios. Por eso te lo pongo fácil.</p>
       </div>
       <div class="trust-grid">
-        <div class="ph ale-ph reveal"><span class="tagph">◇ pendiente</span><span class="ic">👩🏻</span><span class="t">Tu foto, Ale</span><span class="d">Una foto tuya, cálida y real. Es lo que más confianza da: que vean quién está detrás.</span></div>
+        <div class="ph ale-ph reveal"><span class="ic">👩🏻</span><span class="t">Hola, soy Ale 💗</span><span class="d">Muy pronto va aquí mi foto. Mientras tanto, mírame en <a href="https://instagram.com/alebrilla" target="_blank" rel="noopener" style="color:var(--roseD);font-weight:700">Instagram @alebrilla</a> para ver quién está detrás.</span></div>
         <ul class="trust-list">
+          <li class="reveal d1"><span class="mk">✓</span><div><b>Pagas contra entrega (en ciudades disponibles).</b> <span>Donde llega la transportadora con recaudo, recibes primero y pagas después. Si no, es por Nequi al apartar.</span></div></li>
           <li class="reveal d1"><span class="mk">✓</span><div><b>La cantidad está garantizada.</b> <span>Nunca vendo "entre tantos y tantos". Es 6, 9 o 12, y los cuento en tu video.</span></div></li>
           <li class="reveal d2"><span class="mk">✓</span><div><b>Sabes qué puede salir.</b> <span>El tablero de arriba es público: nada de gato por liebre.</span></div></li>
           <li class="reveal d2"><span class="mk">✓</span><div><b>Detrás hay una persona real.</b> <span>Soy yo, en Medellín, y te respondo yo misma si algo pasa.</span></div></li>
@@ -539,11 +543,11 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
             <button type="button" data-id="9" class="on">Cucharada<small>9 · $56.900</small></button>
             <button type="button" data-id="12">Cucharadota<small>12 · $74.900</small></button>
           </div>
-          <span class="fl" for="nom">Tu nombre</span>
+          <label class="fl" for="nom">Tu nombre</label>
           <input id="nom" type="text" placeholder="Ej: Manuela" autocomplete="name">
-          <span class="fl" for="ciu">Tu ciudad</span>
+          <label class="fl" for="ciu">Tu ciudad</label>
           <input id="ciu" type="text" placeholder="Ej: Medellín" autocomplete="address-level2">
-          <span class="fl" for="cant">¿Cuántas cucharadas?</span>
+          <label class="fl" for="cant">¿Cuántas cucharadas?</label>
           <select id="cant">
             <option value="1">1 cucharada</option>
             <option value="2">2 cucharadas</option>
@@ -552,7 +556,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
           </select>
           <label class="chk"><input type="checkbox" id="esRegalo"> 🎁 Es para regalo</label>
           <div class="giftbox" id="giftbox">
-            <span class="fl" for="dedi">Tu dedicatoria</span>
+            <label class="fl" for="dedi">Tu dedicatoria</label>
             <textarea id="dedi" placeholder="Ej: Para mi mejor amiga, ¡te quiero! 💗"></textarea>
           </div>
           <a class="btn wa big" id="waBtn" href="#" target="_blank" rel="noopener">💬 Apartar por WhatsApp</a>
@@ -564,7 +568,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
           <div class="sumrow"><span class="k">Para regalo</span><span class="v" id="sGift">No</span></div>
           <div class="sumtotal"><span class="k">Total (sin envío)</span><span class="v" id="sTotal">$56.900</span></div>
           <div class="pay">
-            💳 <b>Cómo se paga:</b> Nequi al <b>302 567 0116</b> o contra entrega.<br>
+            💳 <b>Cómo se paga:</b> Nequi al <b>302 567 0116</b> o contra entrega (en algunas ciudades).<br>
             📦 <b>Envío:</b> aparte, según tu ciudad (lo cuadramos por el chat).
           </div>
         </div>
@@ -579,7 +583,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
       <div class="faq">
         <details class="qa reveal d1"><summary>¿Cómo pago? <span class="plus">+</span></summary><div class="a">Puedes pagar por <b>Nequi</b> al 302 567 0116, o <b>contra entrega</b> en algunas ciudades. Lo acordamos por WhatsApp cuando apartes.</div></details>
         <details class="qa reveal d1"><summary>¿Cuánto se demora en llegar? <span class="plus">+</span></summary><div class="a">En Medellín suele ser rapidísimo. Al resto de Colombia depende de la transportadora, normalmente <b>2 a 5 días hábiles</b>. Te paso la guía para que lo sigas.</div></details>
-        <details class="qa reveal d2"><summary>¿Y si algo no me sirve? <span class="plus">+</span></summary><div class="a">En la <b>Cucharada</b> puedes cambiar 1 producto y en la <b>Cucharadota</b> 2, por otro de la lista. Y si algo llega mal, me escribes y lo resolvemos.</div></details>
+        <details class="qa reveal d2"><summary>¿Y si algo no me sirve? <span class="plus">+</span></summary><div class="a">En la <b>Cucharada</b> puedes cambiar 1 producto y en la <b>Cucharadota</b> 2, por otro de la lista. En la <b>Cucharadita</b>, si algo no te sirve me escribes y vemos cómo ayudarte. Y si algo llega mal, lo resolvemos siempre. 💗</div></details>
         <details class="qa reveal d2"><summary>¿Cuántos productos me llegan? <span class="plus">+</span></summary><div class="a">La cantidad es <b>fija</b>: 6, 9 o 12 según tu talla, ni uno menos. Los cuento contigo en el video. La sorpresa es <b>cuáles</b> te salen.</div></details>
         <details class="qa reveal d3"><summary>¿Hacen envíos a mi ciudad? <span class="plus">+</span></summary><div class="a">Sí, envío a <b>toda Colombia</b>. El costo se cotiza según tu ciudad; me dices dónde estás y te lo confirmo al toque.</div></details>
       </div>
@@ -650,8 +654,13 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
     var ctx=cv.getContext('2d'),W,H,dots=[],pal=['#E8477E','#C79A3B','#F2B8CE','#7C2E52','#EE8F6B','#FCE0EB'];
     function size(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;}
     function seed(){dots=[];var n=Math.min(28,Math.round(W/32));for(var i=0;i<n;i++)dots.push({x:Math.random()*W,y:Math.random()*H,r:4+Math.random()*9,s:.15+Math.random()*.5,c:pal[i%pal.length],ph:Math.random()*6.28,a:.32+Math.random()*.4});}
-    function tick(){ctx.clearRect(0,0,W,H);for(var i=0;i<dots.length;i++){var d=dots[i];d.y-=d.s;d.ph+=.01;d.x+=Math.sin(d.ph)*.22;if(d.y<-14){d.y=H+14;d.x=Math.random()*W;}ctx.globalAlpha=d.a;ctx.fillStyle=d.c;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,6.2832);ctx.fill();}ctx.globalAlpha=1;requestAnimationFrame(tick);}
-    size();seed();tick();var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){size();seed();},180);});
+    var running=false,visible=true;
+    function frame(){if(!running)return;ctx.clearRect(0,0,W,H);for(var i=0;i<dots.length;i++){var d=dots[i];d.y-=d.s;d.ph+=.01;d.x+=Math.sin(d.ph)*.22;if(d.y<-14){d.y=H+14;d.x=Math.random()*W;}ctx.globalAlpha=d.a;ctx.fillStyle=d.c;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,6.2832);ctx.fill();}ctx.globalAlpha=1;requestAnimationFrame(frame);}
+    function run(on){if(on&&!running&&visible&&!document.hidden){running=true;requestAnimationFrame(frame);}else if(!on){running=false;}}
+    size();seed();run(true);
+    var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){size();seed();},180);});
+    document.addEventListener('visibilitychange',function(){run(!document.hidden&&visible);});
+    if('IntersectionObserver'in window){var hero=document.querySelector('.hero');if(hero)new IntersectionObserver(function(e){visible=e[0].isIntersecting;run(visible);},{threshold:0}).observe(hero);}
   }
 
   /* ---------- tablero (figuritas) ---------- */
@@ -699,21 +708,23 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
   /* ---------- juego ---------- */
   var POOL=[{n:'Labial',e:'💄'},{n:'Gloss',e:'✨'},{n:'Rubor',e:'🌸'},{n:'Sombras',e:'🎨'},{n:'Delineador',e:'🖊️'},{n:'Pestañina',e:'👁️'},{n:'Mascarilla',e:'🧖‍♀️'},{n:'Brochita',e:'🖌️'},{n:'Espejito',e:'🪞'},{n:'Brillos',e:'💫'},{n:'Cosmetiquera',e:'👛'},{n:'Esponjita',e:'🥚'}];
   var STAR={n:'¡Producto grande!',e:'🌟',star:true};
-  var scoopBtn=document.getElementById('scoopBtn'),stat=document.getElementById('stat'),prizes=document.getElementById('prizes'),result=document.getElementById('result'),again=document.getElementById('againBtn'),bowl=document.getElementById('bowl');
-  function pick(){var c=POOL.slice();for(var i=c.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=c[i];c[i]=c[j];c[j]=t;}return c.slice(0,5).concat([STAR]);}
+  var scoopBtn=document.getElementById('scoopBtn'),stat=document.getElementById('stat'),sorpresas=document.getElementById('sorpresas'),result=document.getElementById('result'),again=document.getElementById('againBtn'),bowl=document.getElementById('bowl');
+  function pick(){var c=POOL.slice();for(var i=c.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=c[i];c[i]=c[j];c[j]=t;}
+    if(Math.random()<0.22){var out=c.slice(0,5).concat([STAR]);for(var k=out.length-1;k>0;k--){var m=Math.floor(Math.random()*(k+1));var tmp=out[k];out[k]=out[m];out[m]=tmp;}return out;}
+    return c.slice(0,6);}
   function scoop(){
-    scoopBtn.disabled=true;scoopBtn.style.display='none';prizes.innerHTML='';result.classList.remove('show');
+    scoopBtn.disabled=true;scoopBtn.style.display='none';sorpresas.innerHTML='';result.classList.remove('show');
     stat.textContent='Revolviendo la coca... 🥄';
     if(bowl&&!reduce){bowl.classList.add('stir');setTimeout(function(){bowl.classList.remove('stir');},1200);}
     var items=pick();
     setTimeout(function(){
       stat.textContent='¡Salieron 6 sorpresas! 🎉';burst();
-      items.forEach(function(it,idx){var d=document.createElement('div');d.className='prize'+(it.star?' star':'');d.innerHTML='<div class="pe">'+it.e+'</div><div class="pn">'+it.n+'</div>';prizes.appendChild(d);setTimeout(function(){d.classList.add('show');},reduce?0:150*idx+40);});
+      items.forEach(function(it,idx){var d=document.createElement('div');d.className='sorpresa'+(it.star?' star':'');d.innerHTML='<div class="pe">'+it.e+'</div><div class="pn">'+it.n+'</div>';sorpresas.appendChild(d);setTimeout(function(){d.classList.add('show');},reduce?0:150*idx+40);});
       setTimeout(function(){result.classList.add('show');},reduce?0:150*items.length+250);
     },reduce?0:1200);
   }
   if(scoopBtn)scoopBtn.addEventListener('click',scoop);
-  if(again)again.addEventListener('click',function(){prizes.innerHTML='';result.classList.remove('show');stat.textContent='';scoopBtn.disabled=false;scoopBtn.style.display='';});
+  if(again)again.addEventListener('click',function(){sorpresas.innerHTML='';result.classList.remove('show');stat.textContent='';scoopBtn.disabled=false;scoopBtn.style.display='';});
 
   /* ---------- pedido ---------- */
   var TALLAS={'6':{nombre:'Cucharadita',cant:6,precio:39900},'9':{nombre:'Cucharada',cant:9,precio:56900},'12':{nombre:'Cucharadota',cant:12,precio:74900}};
@@ -743,7 +754,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
     L.push('Mi ciudad: '+((ciu.value||'').trim()||'(escribo mi ciudad)'));
     L.push('Talla: '+t.nombre+' — '+t.cant+' productos — '+cop(t.precio));
     L.push('Cantidad: '+(n>3?'4 o más (te cuento en el chat)':(n+' cucharada'+(n>1?'s':''))));
-    if(n>=2&&n<=3)L.push('Total a pagar (sin envío): '+cop(t.precio*n));
+    if(n>=1&&n<=3)L.push('Total a pagar (sin envío): '+cop(t.precio*n));
     else if(n>3)L.push('Total a pagar: lo cuadramos por aquí');
     L.push('Envío: aparte, ¿cuánto me sale a mi ciudad?');
     if(esRegalo.checked){L.push('');L.push('🎁 Es para regalo.');var d=(dedi.value||'').trim();if(d)L.push('Dedicatoria: '+d);}
