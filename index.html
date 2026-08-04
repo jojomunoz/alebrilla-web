@@ -282,6 +282,8 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .trust-list b{color:var(--ink)}
 .trust-list span{color:var(--soft);font-size:14.5px}
 .ale-ph{aspect-ratio:4/5;border-radius:26px}
+.ale-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;border-radius:26px;box-shadow:var(--sh);display:block}
+.ale-cap{margin-top:12px;text-align:center;font-family:var(--f-disp);font-weight:800;color:var(--roseD);font-size:18px}
 
 /* ==================== ARMAR PEDIDO ==================== */
 .order{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
@@ -610,7 +612,10 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
         <p class="lead">Sé que darle plata a alguien nuevo por internet da nervios. Por eso te lo pongo fácil.</p>
       </div>
       <div class="trust-grid">
-        <div class="ph ale-ph reveal"><span class="ic">👩🏻</span><span class="t">Hola, soy Ale 💗</span><span class="d">Muy pronto va aquí mi foto. Mientras tanto, <a href="https://wa.me/573025670116" target="_blank" rel="noopener" style="color:var(--roseD);font-weight:700">escríbeme por WhatsApp</a> y con gusto te muestro quién está detrás. 💗</span></div>
+        <div class="reveal">
+          <img class="ale-photo" src="ale.jpg" alt="Hola, soy Ale, de Alebrilla, en Medellín" width="900" height="1125" loading="lazy">
+          <div class="ale-cap">Hola, soy Ale 💗</div>
+        </div>
         <ul class="trust-list">
           <li class="reveal d1"><span class="mk">✓</span><div><b>Pagas contra entrega (en ciudades disponibles).</b> <span>Donde llega la transportadora con recaudo, recibes primero y pagas después. Si no, es por Nequi al apartar.</span></div></li>
           <li class="reveal d1"><span class="mk">✓</span><div><b>La cantidad está garantizada.</b> <span>Nunca vendo "entre tantos y tantos". Siempre son 6, y los cuento en tu video.</span></div></li>
