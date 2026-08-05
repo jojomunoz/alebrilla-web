@@ -118,7 +118,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:340px}
 .coca-card{position:relative;width:min(400px,88vw);aspect-ratio:1/.92;background:var(--paper);border:1px solid var(--line);border-radius:34px;box-shadow:var(--sh-lg);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .coca-card .tape{position:absolute;top:16px;left:50%;transform:translateX(-50%) rotate(-2deg);font-family:var(--f-mono);font-size:10.5px;white-space:nowrap;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);background:var(--goldW);border:1px dashed var(--gold);border-radius:8px;padding:4px 10px;z-index:3}
-.cuca-hero{width:150px;height:160px;animation:bob 4.6s ease-in-out infinite;position:relative;z-index:2}
+.lumi-hero{width:150px;height:160px;animation:bob 4.6s ease-in-out infinite;position:relative;z-index:2}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-13px) rotate(2deg)}}
 .coca-charm{position:absolute;font-size:26px;opacity:.9;animation:float 6s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
@@ -266,12 +266,12 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
 .reviews .ph{min-height:230px}
 
 /* ==================== CUCA ==================== */
-.cuca-sec{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:center}
-@media(max-width:760px){.cuca-sec{grid-template-columns:1fr;text-align:center}}
-.cuca-stage{display:flex;justify-content:center}
-.cuca-stage svg{width:min(260px,70vw);height:auto;filter:drop-shadow(0 20px 30px rgba(196,44,100,.25));animation:bob 5s ease-in-out infinite}
-.cuca-copy h2{margin-bottom:12px}
-.cuca-copy p{color:var(--soft)}
+.lumi-sec{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:center}
+@media(max-width:760px){.lumi-sec{grid-template-columns:1fr;text-align:center}}
+.lumi-stage{display:flex;justify-content:center}
+.lumi-stage svg{width:min(260px,70vw);height:auto;filter:drop-shadow(0 20px 30px rgba(196,44,100,.25));animation:bob 5s ease-in-out infinite}
+.lumi-copy h2{margin-bottom:12px}
+.lumi-copy p{color:var(--soft)}
 
 /* ==================== CONFIAR ==================== */
 .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
@@ -415,7 +415,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
           <span class="coca-charm" style="top:30%;right:14%;animation-delay:.8s">🌸</span>
           <span class="coca-charm" style="bottom:26%;left:20%;animation-delay:1.6s">✨</span>
           <span class="coca-charm" style="bottom:22%;right:18%;animation-delay:2.2s">🎨</span>
-          <svg class="cuca-hero" viewBox="0 0 120 130" role="img" aria-label="Cuca, la mascota de Alebrilla">
+          <svg class="lumi-hero" viewBox="0 0 120 130" role="img" aria-label="Lumi, la mascota de Alebrilla">
             <defs><radialGradient id="cgh" cx="42%" cy="34%" r="72%"><stop offset="0" stop-color="#FFE3EE"/><stop offset="1" stop-color="#F2B8CE"/></radialGradient></defs>
             <ellipse cx="60" cy="48" rx="40" ry="34" fill="#C79A3B"/>
             <ellipse cx="60" cy="46" rx="29" ry="24" fill="url(#cgh)"/>
@@ -476,7 +476,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
                 <circle cx="199" cy="97" r="7" fill="#D5456B"/><circle cx="197" cy="95" r="2" fill="#fff" opacity=".5"/>
                 <path d="M112 84 l1.6 4.3 4.3 1.6 -4.3 1.6 -1.6 4.3 -1.6 -4.3 -4.3 -1.6 4.3 -1.6z" fill="#E9C069"/>
               </g>
-              <!-- Cuca, la cucharita: se clava, revuelve y saca su cargamento -->
+              <!-- Lumi, la cucharita: se clava, revuelve y saca su cargamento -->
               <g class="spoon">
                 <rect x="194" y="0" width="11" height="62" rx="5.5" fill="#C79A3B" transform="rotate(24 199 6)"/>
                 <g class="load">
@@ -577,11 +577,11 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
   </section>
 
   <!-- ==================== CUCA ==================== -->
-  <section class="sec rose" id="cuca">
+  <section class="sec rose" id="lumi">
     <div class="wrap">
-      <div class="cuca-sec">
-        <div class="cuca-stage reveal">
-          <svg viewBox="0 0 160 180" role="img" aria-label="Cuca, la mascota coleccionable">
+      <div class="lumi-sec">
+        <div class="lumi-stage reveal">
+          <svg viewBox="0 0 160 180" role="img" aria-label="Lumi, la mascota coleccionable">
             <defs><radialGradient id="cgb" cx="42%" cy="34%" r="72%"><stop offset="0" stop-color="#FFE3EE"/><stop offset="1" stop-color="#F2B8CE"/></radialGradient></defs>
             <ellipse cx="80" cy="60" rx="54" ry="46" fill="#C79A3B"/>
             <ellipse cx="80" cy="57" rx="40" ry="33" fill="url(#cgb)"/>
@@ -593,11 +593,11 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
             <path d="M126 24 l2.6 7 7 2.6 -7 2.6 -2.6 7 -2.6 -7 -7 -2.6 7 -2.6z" fill="#E8477E"/>
           </svg>
         </div>
-        <div class="cuca-copy reveal d1">
+        <div class="lumi-copy reveal d1">
           <span class="kick">Tu compañera</span>
-          <h2>Conoce a Cuca 🥄</h2>
-          <p>Cuca es la cucharita con carita que va en cada pedido de Alebrilla. Es tierna, es paisa y es la cara de tu marca favorita de sorpresas.</p>
-          <p>La idea es que <strong>colecciones las Cucas</strong> — como esos coleccionables famosos, pero de aquí. Cada tanda trae una Cuca distinta para coleccionar. 💗</p>
+          <h2>Conoce a Lumi 🥄</h2>
+          <p>Lumi es la cucharita con carita que va en cada pedido de Alebrilla. Es tierna, es paisa y es la cara de tu marca favorita de sorpresas.</p>
+          <p>La idea es que <strong>colecciones las Lumis</strong> — como esos coleccionables famosos, pero de aquí. Cada tanda trae una Lumi distinta para coleccionar. 💗</p>
         </div>
       </div>
     </div>
@@ -861,7 +861,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
     if(!pPrev)pPrev=ts;
     var dt=Math.min(.033,(ts-pPrev)/1000)||.016;pPrev=ts;
     pctx.clearRect(0,0,pW,pH);
-    if(performance.now()<simmerT){ /* burbujeo suave mientras Cuca revuelve */
+    if(performance.now()<simmerT){ /* burbujeo suave mientras Lumi revuelve */
       simmerAcc+=dt;
       while(simmerAcc>.12){
         simmerAcc-=.12;
@@ -931,7 +931,7 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.06;letter-spacing:-.015em;te
       result.classList.add('show');
       return;
     }
-    setStat('Cuca está revolviendo tu coca<span class="dots" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span> 🥄');
+    setStat('Lumi está revolviendo tu coca<span class="dots" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span> 🥄');
     bowl.classList.add('scooping');
     simmer(ANTICIPO-300);
     setTimeout(function(){
